@@ -1,5 +1,7 @@
 package main
 
+// Writing files in Go follows similar patterns to the ones we saw earlier for reading.
+
 import (
 	"bufio"
 	"fmt"
@@ -23,6 +25,11 @@ func main() {
 
 	defer f.Close()
 
+	// To start, here’s how to dump a string (or just bytes) into a file.
+	// For more granular writes, open a file for writing.
+	// It’s idiomatic to defer a Close immediately after opening a file.
+	// You can Write byte slices as you’d expect.
+
 	d2 := []byte{115, 111, 109, 101, 10}
 	n2, err := f.Write(d2)
 	check(err)
@@ -42,6 +49,12 @@ func main() {
 	w.Flush()
 
 }
+
+// Issue a Sync to flush writes to stable storage.bufio provides buffered writers
+//  in addition to the buffered readers we saw earlier.Use Flush to ensure all buffered operations
+//  have been applied to the underlying writer.
+// Try running the file-writing code.
+// then check the contents of the written files.
 
 // output :
 // wrote 5 bytes
