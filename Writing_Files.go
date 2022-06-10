@@ -42,3 +42,17 @@ func main() {
 	w.Flush()
 
 }
+
+// output :
+// wrote 5 bytes
+// wrote 7 bytes
+// wrote 9 bytes
+
+// $ cat /tmp/dat1
+// hello
+// go
+
+// $ cat /tmp/dat2
+// some
+// writes
+// buffered
